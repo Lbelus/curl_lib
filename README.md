@@ -4,16 +4,21 @@ Implementation of a custom libcurl.
 
 ### Description
 
+Curl feature:
+
+``/!\ HTTP/2 and HTTP/3 has not been implemented be weary with your credentials /!\``   
+
+ssl encryption, tsl handshake, http, https, user agent, custom header, POST and GET.
+
+Allow to build payload with a custom user agent and authenticate
+
+
+Curl core implementation:
 This curl implementation involves three main functions - init_my_curl, my_curl, and clean_my_curl.
-
 The init_my_curl function initializes a 'my_curl' request based on the given URI and user argument. If the user argument is not a URL or uses a protocol other than HTTP, the function handles these cases accordingly.
-
 The my_curl function performs a curl-like request using the provided uri_s_t structure, calling the perform_get_request function which connects to the server, sends a GET request, reads the server's response and writes it to the standard output.
-
 The clean_my_curl function cleans up resources associated with the provided uri_s_t structure.
-
 The project makes use of socket programming to handle HTTP requests and responses.
-
 The project has been developped to meet but requirements only but is leaving structs and branching paths available for further updates.
 
 
@@ -68,14 +73,17 @@ To install this project, follow these steps:
 ## Usage
 To use my_curl, use the following command format:
 
-```sh
-./my_curl <URL>
+```c
+#include <curl_api.h>
+
+int main(void)
+{
+    node_t* cookie_jar = login("useName", "passWord", "ANDROID OS", "https://www.linkedin.com/uas/authenticate");
+    free_llist(cookie_jar);
+    return EXIT_SUCCESS;
+}
 ```
-Replace <URL> with the web address from which you want to fetch data. For example:
-```sh
-./my_curl http://www.columbia.edu/~fdc/sample.html
-```
-This will display the HTML content of the specified web page in the terminal.
+
 
 
 
@@ -84,6 +92,8 @@ Optimization :
 - The linkedlist sucks baaaad; 
 - in ``req_res.c`` function : ``node_t* set_http_responser_header(int sockfd)`` : "\r" search should be implemented at readline level;
 - improve quick fix on set_parse_struct(url_p_s_t* url_s, char* domain, char* path) in case the last char of the URL before '\0' is not a '\';
+- curl_ft.c -> // refactor here string should be stored on user agent struct
+
 
 ### The Core Team
 * [Lorris BELUS](//github.com/Lbelus) - Developer
