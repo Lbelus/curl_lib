@@ -2,13 +2,17 @@
 
 char* my_strdup(char* str)
 {
-    int len = my_strlen(str) + 1;
-    if (len == 1)
+    int len = my_strlen(str);
+    if (len == 0)
     {
         return NULL;
     }
-    char* new = malloc(sizeof(char) * len);
-    my_memcpy(new, str, len);
-    new[len]  = '\0';
-    return new;
-} 
+    char* new_str = malloc(sizeof(char) * (len + 1));
+    if (new_str == NULL)
+    {
+        return NULL;
+    }
+    my_memcpy(new_str, str, len);
+    new_str[len] = '\0';
+    return new_str;
+}

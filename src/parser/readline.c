@@ -1,6 +1,6 @@
 #include <main_header.h>
 
-int READLINE_READ_SIZE = 25;
+int READLINE_READ_SIZE = 256;
 char* rl_buff;
 
 char* init_my_readline()
@@ -27,7 +27,7 @@ int my_realloc_rl(int size)
 int seek_newline(int size)
 {
     int len = 0;
-    while (rl_buff[len] != '\n' && rl_buff[len] != '\0' && len < size -1 )
+    while (rl_buff[len] != '\n' && rl_buff[len] != '\0' && len < size - 1 )
     {
         len += 1;
     }
@@ -75,7 +75,7 @@ char* my_readline(int fd)
     cursor = seek_newline(size);
     // fill buff
     while (is_newline(size) == false 
-        && (byte_count = read(fd, tmp_buff, READLINE_READ_SIZE -1)))
+        && (byte_count = read(fd, tmp_buff, READLINE_READ_SIZE - 1)))
     {
         tmp_buff[byte_count] = '\0';
         my_realloc_rl(byte_count);
@@ -151,8 +151,9 @@ char* my_SSL_readline(SSL* ssl)
     cursor = seek_newline(size);
     // fill buff
     while (is_newline(size) == false 
-        && (byte_count = SSL_read(ssl, tmp_buff, READLINE_READ_SIZE -1)))
+        && (byte_count = SSL_read(ssl, tmp_buff, READLINE_READ_SIZE - 1)))
     {
+        printf("byte count is:%i\n", byte_count);
         tmp_buff[byte_count] = '\0';
         my_realloc_rl(byte_count);
         my_strcat(rl_buff, tmp_buff);

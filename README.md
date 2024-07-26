@@ -61,6 +61,37 @@ This custom lib curl is allowing the use of following user agents:
 You can also add you own user-agent by modifying the user_agent.txt file.
 
 
+
+
+## Python extending
+
+Create a virtual env
+```bash
+python3 -m venv myportenv-env
+source myportenv-env/bin/activate
+pip install -U pip setuptools
+```
+
+To build and install project 
+```bash
+python3 setup.py build
+python3 setup.py install
+```
+
+### case usage 
+
+You can read from any FD meaning a socket as well:
+```python
+import linkedin_api_module
+
+cookie_jar = linkedin_api_module.login("useName", "passWord", "ANDROID OS", "https://www.linkedin.com/uas/authenticate")
+linkedin_api_module.free_llist(cookie_jar)
+
+```
+
+
+
+
 ## Installation
 
 To install this project, follow these steps:

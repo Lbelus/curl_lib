@@ -13,9 +13,9 @@ node_t* login(char* username, char* password, char* user_agent_designation, char
     printf("payload %s\n", payload);
     cookie_jar = get_auth_cookie(user_agent, cookies_str, payload, url);
     free(cookies_str);
-    printf("got cookie_jar\n");
-    free_user_agent(user_agent);
-    free(payload);
+    printf("\ngot cookie_jar\n");
+    // free_user_agent(user_agent);
+    // free(payload);
     return cookie_jar;
 }
 

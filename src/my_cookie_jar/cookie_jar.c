@@ -37,8 +37,7 @@ node_t* fill_cookie_jar(ssl_s_t* ssl_data)
     node_t*     head     = NULL;
     int         pos      = 0;
     init_my_readline();
-	while ((str = my_SSL_readline(ssl_data->ssl)) != NULL
-	&& my_strcmp(str, "\r") != 0)
+	while ((str = my_SSL_readline(ssl_data->ssl)) != NULL)
 	{
         if (my_strstr(str, __COOKIE_STR_) != NULL)
         {
@@ -48,7 +47,7 @@ node_t* fill_cookie_jar(ssl_s_t* ssl_data)
         }
         free(str);
 	}
-    print_llist(head);
+    // print_llist(head);
 	flush_buffer();
 	free(str);
 	return head;

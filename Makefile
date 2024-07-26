@@ -11,6 +11,7 @@ export C_INCLUDE_PATH=include/
 # Note the single quotes around the * expressions. Make will incorrectly expand these otherwise.
 
 SRCS := $(shell find $(SRC_DIRS) -name '*.c')
+SRCS := $(filter-out $(SRC_DIRS)/curlapimodule.c, $(SRCS))
 # rm $(BUIS)
 # BUIS := $(shell find $(BUILD_DIR) -name '*.o')
 # String substitution for every C file.
@@ -34,7 +35,7 @@ XTRAFLAGS := $(INC_FLAGS) -g -MMD -MP
 
 $(BUILD_DIR)/$(TARGET_EXEC): $(OBJS)
 	$(CC) $(OBJS) -o $@ 
-	cp $(BUILD_DIR)/$(TARGET_EXEC)  ./ 
+	cp $(BUILD_DIR)/$(TARGET_EXEC)  ./ $(CFLAGS)
 # Build step for C source
 $(BUILD_DIR)/%.c.o: %.c
 	mkdir -p $(dir $@)

@@ -26,7 +26,7 @@ user_agent_t* pick_user_agent(char* designation)
 user_agent_t* set_user_agent(char* designation, char* value)
 {
     user_agent_t* user_agent = NULL;
-    user_agent = malloc(sizeof(user_agent));
+    user_agent = malloc(sizeof(user_agent_t));
     user_agent->designation = my_strdup(designation);
     user_agent->value = my_strdup(value);
     return user_agent;
