@@ -153,6 +153,11 @@ char* my_SSL_readline(SSL* ssl)
     while (is_newline(size) == false 
         && (byte_count = SSL_read(ssl, tmp_buff, READLINE_READ_SIZE - 1)))
     {
+        if (byte_count == -1)
+        {
+            return NULL;
+        }
+
         printf("byte count is:%i\n", byte_count);
         tmp_buff[byte_count] = '\0';
         my_realloc_rl(byte_count);
