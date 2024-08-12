@@ -1,6 +1,6 @@
 # How to setup an ip rotation with nord VPN
 
-This setup is for linux only, please refer to (kboghe/NordVPN-switcher)[https://github.com/kboghe/NordVPN-switcher] for other OS.
+This setup is for linux only, please refer to [kboghe/NordVPN-switcher](https://github.com/kboghe/NordVPN-switcher) for other OS.
 
 ## INSTALL NORD VPN
 
@@ -21,7 +21,7 @@ pip install nordvpn-switcher
 
 ## Id to Nord VPN with nordvpn CLI
 
-Go to (nordVPN)[http://nordvpn.com/] website under ``services/NordVPN`` section and require an access TOKEN
+Go to [nordVPN](http://nordvpn.com/) website under ``services/NordVPN`` section and require an access TOKEN
 
 log with word vpn cli
 ```bash
