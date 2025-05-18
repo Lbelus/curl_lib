@@ -4,11 +4,12 @@
 
 int main(void)
 {
-    uri_s_t uri = {0};
-    uri = init_fc_curl(uri, "https://www.google.com");
-    // url_p_s_t* url_s = uri.uri_union.url;
-    fc_curl(uri);
-    clean_fc_curl(uri);
+    // uri_s_t uri = {0};
+    // uri = init_fc_curl(uri, "https://www.google.com");
+    // // url_p_s_t* url_s = uri.uri_union.url;
+    // fc_curl(uri);
+    // clean_fc_curl(uri);
+    test_allocation();
 
     return EXIT_SUCCESS;
 }

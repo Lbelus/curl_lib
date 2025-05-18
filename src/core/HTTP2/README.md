@@ -180,7 +180,7 @@ stateDiagram-v2
 
 * The ALPN identifier for "h2" is serialized as: `0x02 0x68 0x32` → where `0x68 = 'h'` and `0x32 = '2'`.
 
-* The string "PRI \* HTTP/2.0\r\n\r\nSM\r\n\r\n" must be sent as the client connection preface.
+* The string ``"PRI \* HTTP/2.0\r\n\r\nSM\r\n\r\n"`` must be sent as the client connection preface.
 
 * This preface is immediately followed by a `SETTINGS` frame (which can be empty).
 
